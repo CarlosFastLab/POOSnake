@@ -1,6 +1,8 @@
 package snake.drawables;
 
 import java.awt.Color;
+
+import snake.JPanelSnake;
 import snake.Pontuacao;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -15,7 +17,7 @@ public class Snake extends BaseLimitedDrawable {
 
 	private final Point HEAD = new Point(0, 0);
 	private final List<Point> TAIL = new ArrayList<>();
-	public static final Pontuacao SCORE = new Pontuacao();
+	public static final Pontuacao SCORE = JPanelSnake.SCORE;
 
 	private int fluxoX = -Point.SIZE;
 	private int fluxoY = 0;

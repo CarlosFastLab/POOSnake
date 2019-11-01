@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class Pontuacao extends JPanel{
 	private JLabel pontuacao = new JLabel();
-	private String rotulo = "PontuaÃ§Ã£o: ";
+	private String rotulo = "Pontuação: ";
 	private int pontos = 0;
 	
 	public Pontuacao() {

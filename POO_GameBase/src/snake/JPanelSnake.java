@@ -6,6 +6,7 @@ import java.util.Random;
 import core.JPanelDraw;
 import drawables.Point;
 import snake.drawables.Comida1;
+//nova linha
 import snake.drawables.Comida2;
 import snake.drawables.Comida3;
 //import drawables.SpaceCraft;
