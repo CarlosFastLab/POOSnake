@@ -23,19 +23,19 @@ public class Snake extends BaseLimitedDrawable {
 	private int fluxoY = 0;
 	public Snake(double xMax, double yMax) {
 		super(xMax, yMax);
-				
+
 		for (int i = 1; i<=6; i++) {
 			TAIL.add(new Point(Point.SIZE*i, 0));
 		}
 	}
 	public Point getHead() { return HEAD; }
 	public void addToTail(Point p) { TAIL.add(p); }
-	
+
 	@Override
 	public void draw(Graphics2D g2d) {
-		
+
 		final Color TAIL_COLOR = Color.CYAN;
-		
+
 		Color corT = g2d.getColor();
 		g2d.setColor(TAIL_COLOR);
 		TAIL.forEach(p -> {p.draw(g2d);});
@@ -45,9 +45,9 @@ public class Snake extends BaseLimitedDrawable {
 		g2d.setColor(HEAD_COLOR);
 		HEAD.draw(g2d);
 		g2d.setColor(cor);
-	
+
 	}
-	
+
 
 	public void eventoKey(KeyEvent e) {
 		int k = e.getKeyCode();
@@ -60,20 +60,19 @@ public class Snake extends BaseLimitedDrawable {
 
 	public void move() {
 		Point ultimo, penultimo;
-		
+
 		for (int i = TAIL.size()-1; i>=1; i--) {
 			ultimo = TAIL.get(i);
 			penultimo = TAIL.get(i-1);
 			ultimo.moveTO(penultimo.X, penultimo.Y);		
 		}
-		
+
 		TAIL.get(0).moveTO(HEAD.X, HEAD.Y);
-		
+
 		HEAD.moveIncremental(fluxoX, fluxoY);
 	}
-	
+
 	public boolean  moveInversoX() {
-				
 		if(Math.abs(HEAD.X)>this.MAX_X) {
 			HEAD.X = -HEAD.X;
 			//SCORE.decPontos(1);
@@ -81,7 +80,7 @@ public class Snake extends BaseLimitedDrawable {
 		}
 		return false;
 	}
-	
+
 	public boolean moveInversoY() {
 		if(Math.abs(HEAD.Y)>this.MAX_Y) {
 			HEAD.Y = -HEAD.Y;
@@ -89,7 +88,7 @@ public class Snake extends BaseLimitedDrawable {
 			return true;
 		}
 		return false;
-		
+
 
 	}
 
@@ -117,7 +116,7 @@ public class Snake extends BaseLimitedDrawable {
 			fluxoX = 0;
 		}
 	}
-	
+
 	public boolean isComendoTail() {
 		for (Point carlos : TAIL) {
 			if(carlos.X==HEAD.X & carlos.Y==HEAD.Y)
@@ -125,7 +124,7 @@ public class Snake extends BaseLimitedDrawable {
 		}
 		return false;
 	}
-	
+
 
 }
 
