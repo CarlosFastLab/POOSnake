@@ -75,7 +75,7 @@ public class Snake extends BaseLimitedDrawable {
 	public boolean  moveInversoX() {
 		if(Math.abs(HEAD.X)>this.MAX_X) {
 			HEAD.X = -HEAD.X;
-			//SCORE.decPontos(1);
+			SCORE.decPontos(1);
 			return true;
 		}
 		return false;
@@ -84,7 +84,7 @@ public class Snake extends BaseLimitedDrawable {
 	public boolean moveInversoY() {
 		if(Math.abs(HEAD.Y)>this.MAX_Y) {
 			HEAD.Y = -HEAD.Y;
-			//SCORE.decPontos(1);
+			SCORE.decPontos(1);
 			return true;
 		}
 		return false;
@@ -118,8 +118,8 @@ public class Snake extends BaseLimitedDrawable {
 	}
 
 	public boolean isComendoTail() {
-		for (Point carlos : TAIL) {
-			if(carlos.X==HEAD.X & carlos.Y==HEAD.Y)
+		for (Point ref : TAIL) {
+			if(ref.X==HEAD.X & ref.Y==HEAD.Y)
 				return true;
 		}
 		return false;

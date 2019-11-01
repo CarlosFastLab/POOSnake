@@ -31,4 +31,8 @@ public class Pontuacao extends JPanel{
 		pontos -= value;
 		rotula();
 	}
+	 
+	public int getPontos() {
+		return pontos;
+	}
 }
