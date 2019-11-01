@@ -59,10 +59,11 @@ public class Snake extends BaseLimitedDrawable {
 	}
 
 	public void move() {
+		Point ultimo, penultimo;
 		
 		for (int i = TAIL.size()-1; i>=1; i--) {
-			Point ultimo = TAIL.get(i);
-			Point penultimo = TAIL.get(i-1);
+			ultimo = TAIL.get(i);
+			penultimo = TAIL.get(i-1);
 			ultimo.moveTO(penultimo.X, penultimo.Y);		
 		}
 		
@@ -71,20 +72,23 @@ public class Snake extends BaseLimitedDrawable {
 		HEAD.moveIncremental(fluxoX, fluxoY);
 	}
 	
-	public void moveInversoX() {
+	public boolean  moveInversoX() {
 				
 		if(Math.abs(HEAD.X)>this.MAX_X) {
 			HEAD.X = -HEAD.X;
-			SCORE.decPontos(1);
-			
+			//SCORE.decPontos(1);
+			return true;
 		}
+		return false;
 	}
 	
-	public void moveInversoY() {
+	public boolean moveInversoY() {
 		if(Math.abs(HEAD.Y)>this.MAX_Y) {
 			HEAD.Y = -HEAD.Y;
-			SCORE.decPontos(1);
+			//SCORE.decPontos(1);
+			return true;
 		}
+		return false;
 		
 
 	}
@@ -113,6 +117,15 @@ public class Snake extends BaseLimitedDrawable {
 			fluxoX = 0;
 		}
 	}
+	
+	public boolean isComendoTail() {
+		for (Point carlos : TAIL) {
+			if(carlos.X==HEAD.X & carlos.Y==HEAD.Y)
+				return true;
+		}
+		return false;
+	}
+	
 
 }
 

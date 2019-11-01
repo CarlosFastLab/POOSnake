@@ -58,11 +58,22 @@ public class JPanelSnake extends JPanelDraw {
 			int[] xy = getRandomCoord();
 			comida1.moveTO(xy[0], xy[1]);
 			SCORE.decPontos(2);
+		} if (cobra.isComendoTail()) {
+			SCORE.decPontos(1);
 		}	
-
+		if (cobra.moveInversoX()) {
+			SCORE.decPontos(1);
+		}
+		
+		if (cobra.moveInversoY()) {
+			SCORE.decPontos(1);
+		}
+		
 		cobra.move();
-		cobra.moveInversoX();
-		cobra.moveInversoY();
+		
+
+		//cobra.moveInversoX();
+		//cobra.moveInversoY();
 		
 //		if (cobra.moveInversoX()) {
 //			SCORE.decPontos(-1);
